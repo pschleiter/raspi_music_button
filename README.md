@@ -1,9 +1,5 @@
 # Raspi-Music-Button
 
-![PyPI - License](https://img.shields.io/pypi/l/raspi-music-button)
-[![Current version on PyPI](https://img.shields.io/pypi/v/raspi-music-button)](https://pypi.org/project/raspi-music-button/)
-[![Build status](https://github.com/pschleiter/raspi-music-button/workflows/build/badge.svg)](https://github.com/pschleiter/raspi-music-button/actions)
-
 Raspi-Music-Button is a small python based package that interacts with linux packages on the Raspberry Pi to play music.
 Moreover it can be used to trigger music by a button connect to one of the Raspberry Pi 
 gpio.
