@@ -71,8 +71,11 @@ def test_play_folder(fake_service):
     fake_service.play_folder(card_id=1, folder=folder)
 
     assert len(FakeMPG321Adapter.COMMANDS) == 1
-    assert FakeMPG321Adapter.COMMANDS[0] == (
-        "play_song",
-        1,
-        " ".join([str(song1), str(song2), str(song3)]),
-    )
+
+    command, card, songs = FakeMPG321Adapter.COMMANDS[0]
+    assert command == "play_song"
+    assert card == 1
+    assert len(songs.split(" ")) == 3
+    assert str(song1) in songs
+    assert str(song2) in songs
+    assert str(song3) in songs
