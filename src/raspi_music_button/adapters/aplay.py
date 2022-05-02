@@ -38,7 +38,7 @@ class APlayAdapter(AbstractAPlayAdapter):
     @classmethod
     def _version(cls) -> str:
         response = subprocess.run(
-            ["aplay2", "--version"], capture_output=True, encoding="utf-8"
+            ["aplay", "--version"], capture_output=True, encoding="utf-8"
         )
         response.check_returncode()
         return response.stdout

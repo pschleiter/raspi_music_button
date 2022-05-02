@@ -50,7 +50,6 @@ class AMixerAdapter(AbstractAMixerAdapter):
         response = subprocess.run(
             ["amixer", "--version"], capture_output=True, encoding="utf-8"
         )
-        response.check_returncode()
         return response.stdout
 
     @classmethod
