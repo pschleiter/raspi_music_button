@@ -43,15 +43,15 @@ def test_set_volume(fake_service):
     assert FakeAMixerAdapter.COMMANDS[-1] == ("set_content", 1, "'PCM',0", "100%")
 
 
-def test_play_song(fake_service):
+def test_play_songs(fake_service):
 
     song = Path("my/fake/folder/song.mp3")
-    fake_service.play_song(card_id=0, song=song)
+    fake_service.play_songs(card_id=0, songs=[song])
 
     assert len(FakeMPG321Adapter.COMMANDS) == 1
     assert FakeMPG321Adapter.COMMANDS[0] == ("play_song", 0, str(song))
 
-    fake_service.play_song(card_id=0, song=song.absolute())
+    fake_service.play_songs(card_id=0, songs=[song.absolute()])
 
     assert len(FakeMPG321Adapter.COMMANDS) == 2
     assert FakeMPG321Adapter.COMMANDS[1] == ("play_song", 0, str(song.absolute()))

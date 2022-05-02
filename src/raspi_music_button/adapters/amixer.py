@@ -22,7 +22,9 @@ class AbstractAMixerAdapter(metaclass=abc.ABCMeta):
         capabilities = re.findall(r"Capabilities: (.*)$", response, flags=re.MULTILINE)
 
         if len(controls) != len(capabilities):
-            raise RuntimeError("Missmatch between controls and capabilities of sound devices")
+            raise RuntimeError(
+                "Missmatch between controls and capabilities of sound devices"
+            )
 
         for control, capability in zip(controls, capabilities):
             if "pvolume" in capability:
@@ -31,7 +33,9 @@ class AbstractAMixerAdapter(metaclass=abc.ABCMeta):
                 )
                 return
 
-        raise RuntimeError("Sound device has no capability pvolume to control output volume.")
+        raise RuntimeError(
+            "Sound device has no capability pvolume to control output volume."
+        )
 
     @classmethod
     @abc.abstractmethod

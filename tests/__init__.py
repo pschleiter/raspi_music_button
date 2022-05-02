@@ -119,5 +119,9 @@ the Free Software Foundation; either version 2 of the License, or
 """
 
     @classmethod
-    def play_songs(cls, card_id: int, songs: t.List[t.Union[Path, str]], shuffle: bool = False):
-        cls.COMMANDS.append(("play_song", card_id, " ".join([str(song) for song in songs])))
+    def play_songs(
+        cls, card_id: int, songs: t.List[t.Union[Path, str]], shuffle: bool = False
+    ):
+        cls.COMMANDS.append(
+            ("play_song", card_id, " ".join([str(song) for song in songs]))
+        )

@@ -37,7 +37,9 @@ class MPG321Adapter(AbstractMPG321Adapter):
         cls, card_id: int, songs: t.List[t.Union[Path, str]], shuffle: bool = False
     ):
         if len(songs) == 0:
-            raise RuntimeError("The given list of songs is empty. Please provide at least on song.")
+            raise RuntimeError(
+                "The given list of songs is empty. Please provide at least on song."
+            )
 
         options = ["--audiodevice", f"hw:{card_id}", "--gain 100", "--quiet"]
         if shuffle:
